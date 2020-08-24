@@ -4,6 +4,5 @@
 - file: case-study
   sections:
     - file: sentiment-analysis-ee
-    - file: sentiment-analysis-test
     - file: interactive-vis-example
 
