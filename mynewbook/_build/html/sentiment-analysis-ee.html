@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Sentiment Detection within Comments &#8212; Cath&#39;s Cabs Data Innovation Health Check Report</title>
+    <title>Detecting Emotion within Discussion Comments &#8212; Cath&#39;s Cabs Data Innovation Health Check Report</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -95,7 +95,7 @@
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Sentiment Detection within Comments
+     Detecting Emotion within Discussion Comments
     </a>
    </li>
    <li class="toctree-l2">
@@ -181,25 +181,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   1. Introduction
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#import-libraries">
-     1.1 Import Libraries
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   2. Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sentiment-analysis">
-   3. Sentiment Analysis
+   Sentiment Analysis
   </a>
  </li>
 </ul>
@@ -212,41 +195,14 @@
         
               <div>
                 
-  <hr class="docutils" />
-<p><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">DIA</span> <span class="pre">TEAM</span> <span class="pre">MEMBER</span> <span class="pre">NOTES</span> <span class="pre">(DELETE</span> <span class="pre">THIS</span> <span class="pre">CELL</span> <span class="pre">ON</span> <span class="pre">CHECKING</span> <span class="pre">POINTS</span> <span class="pre">BELOW):</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">###</span> <span class="pre">Text</span> <span class="pre">changes</span> <span class="pre">required</span> <span class="pre">if</span> <span class="pre">using</span> <span class="pre">different</span> <span class="pre">dataset</span> <span class="pre">to</span> <span class="pre">Amazon's</span> <span class="pre">Fine</span> <span class="pre">Food</span> <span class="pre">Reviews:</span></code></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Change</span> <span class="pre">title</span> <span class="pre">of</span> <span class="pre">notebook</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Change</span> <span class="pre">dataset</span> <span class="pre">text</span> <span class="pre">in</span> <span class="pre">&quot;1.</span> <span class="pre">Introduction&quot;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Change</span> <span class="pre">dataset</span> <span class="pre">text</span> <span class="pre">in</span> <span class="pre">&quot;2.</span> <span class="pre">Data&quot;</span></code></p></li>
-</ul>
-<hr class="docutils" />
-<div class="section" id="sentiment-detection-within-comments">
-<h1>Sentiment Detection within Comments<a class="headerlink" href="#sentiment-detection-within-comments" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>The purpose of this notebook is to demonstrate <em>Sentiment Analysis</em>, a <em>Natural Language Processing (NLP)</em> technique. This procedure aims to detect sentiment within text.</p>
-<p>A subsample of the <em>Amazon</em> fine food reviews <a class="reference external" href="https://www.kaggle.com/snap/amazon-fine-food-reviews">dataset</a> has been used in this notebook.</p>
-<div class="section" id="import-libraries">
-<h3>1.1 Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h3>
-<p>The cell immediately below houses the import statements for this script. Please run the cell and continue to scroll to the next cell where the tutorial will continue.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data Analysis</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Sentiment Analysis</span>
-<span class="kn">from</span> <span class="nn">vaderSentiment.vaderSentiment</span> <span class="k">import</span> <span class="n">SentimentIntensityAnalyzer</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="data">
-<h2>2. Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-<p>The cell below shows the top 10 records of the fine foods review dataset which is being used in this demonstration. In this case we are only interested in the ‘Text’ column.</p>
-<div class="cell docutils container">
+  <div class="section" id="detecting-emotion-within-discussion-comments">
+<h1>Detecting Emotion within Discussion Comments<a class="headerlink" href="#detecting-emotion-within-discussion-comments" title="Permalink to this headline">¶</a></h1>
+<p>The ability to automatically detect the sentiment expressed in textual data will provide Cath’s Cabs with a greater insight into the nuance of the comments associated with research notes. This functionality will support further analysis into the correlation between a comment and a researcher’s notes. For example, a comment that has a positive sentiment may be linked to a user gaining valuable information from such note and could contribute to a ranking system in terms of usefulness of research notes. Such a feature could greatly innovate Cath’s Cabs’s software.</p>
+<p>Sentiment Analysis is an area of NLP which aims to automatically identify and extract opinions within a given text by gauging the attitude, sentiment, evaluation and emotion of a speaker/writer based on the computational treatment of the text.</p>
+<div class="section" id="sentiment-analysis">
+<h2>Sentiment Analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">¶</a></h2>
+<p>For the purposes of the concept work herein, we use an <em>Amazon</em> fine food reviews dataset.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Read in data and print</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;fine-food-reviews-ee.csv&#39;</span><span class="p">)</span>
@@ -262,11 +218,6 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="stderr docutils container">
-<pre class="stderr literal-block">c:\users\scmee4\appdata\local\programs\python\python37\lib\site-packages\IPython\core\interactiveshell.py:3057: DtypeWarning: Columns (1,2,3,8,9) have mixed types.Specify dtype option on import or set low_memory=False.
-  interactivity=interactivity, compiler=compiler, result=result)
-</pre>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -300,66 +251,66 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>B001E4KFG0</td>
       <td>A3SGXH7AUHU8GW</td>
       <td>delmartian</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>5.0</td>
-      <td>1.303862e+09</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1303862400</td>
       <td>Good Quality Dog Food</td>
       <td>I have bought several of the Vitality canned d...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.0</td>
+      <td>2</td>
       <td>B00813GRG4</td>
       <td>A1D87F6ZCVE5NK</td>
       <td>dll pa</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1.346976e+09</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1346976000</td>
       <td>Not as Advertised</td>
       <td>Product arrived labeled as Jumbo Salted Peanut...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>3.0</td>
+      <td>3</td>
       <td>B000LQOCH0</td>
       <td>ABXLMWJIXXAIN</td>
       <td>Natalia Corres "Natalia Corres"</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>4.0</td>
-      <td>1.219018e+09</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1219017600</td>
       <td>"Delight" says it all</td>
       <td>This is a confection that has been around a fe...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>4.0</td>
+      <td>4</td>
       <td>B000UA0QIQ</td>
       <td>A395BORC6FGVXV</td>
       <td>Karl</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>2.0</td>
-      <td>1.307923e+09</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1307923200</td>
       <td>Cough Medicine</td>
       <td>If you are looking for the secret ingredient i...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5.0</td>
+      <td>5</td>
       <td>B006K2ZZ7K</td>
       <td>A1UQRSCLF8GW1T</td>
       <td>Michael D. Bigham "M. Wassir"</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>5.0</td>
-      <td>1.350778e+09</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>1350777600</td>
       <td>Great taffy</td>
       <td>Great taffy at a great price.  There was a wid...</td>
     </tr>
@@ -367,12 +318,8 @@
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="sentiment-analysis">
-<h2>3. Sentiment Analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">¶</a></h2>
-<p>In the following cell, we apply <code class="docutils literal notranslate"><span class="pre">VADER</span></code>, a sentiment analysis tool, to the top 10 reviews in the example dataset.</p>
-<p>Once <code class="docutils literal notranslate"><span class="pre">VADER</span></code> is installed, we call the <code class="docutils literal notranslate"><span class="pre">SentimentIntensityAnalyzer</span></code> object. We will use the <code class="docutils literal notranslate"><span class="pre">polarity_scores()</span></code> method to obtain the polarity indices for a given review.</p>
-<div class="cell docutils container">
+<p>The demonstration reports the results of VADER and the Tone Analyzer classifications for the five example comments. Both VADER and IBM’s Tone Analyzer produce a score which correlates to the associated sentiment/emotion. As mentioned above, VADER’s score is based off of three different thresholds in relation to the compound score whereas the Tone Analyzer is on a scale of zero to one. A score of 0.75 or higher means it’s likely that the emotional indicators are spot-on.</p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Initialise &#39;SentimentIntensityAnalyzer&#39; object</span>
 <span class="n">analyser</span> <span class="o">=</span> <span class="n">SentimentIntensityAnalyzer</span><span class="p">()</span>
@@ -466,6 +413,7 @@ Overall Sentiment: Positive
 </div>
 </div>
 </div>
+<p>The given examples clearly express sentiments and emotions. It is important to note that if a comment were to express two sentiments, for example, “I found these notes really helpful, but they could have included a little more information” then more sophisticated techniques may be required such as IBM’s Tone Analyzer. Overall, the results from VADER and the Tone Analyzer are in line with our pragmatic competence as human readers which allows us to interpret that these are intuitive results.</p>
 </div>
 </div>
 

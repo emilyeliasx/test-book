@@ -1,36 +1,12 @@
-***
+# Detecting Emotion within Discussion Comments 
+ 
+The ability to automatically detect the sentiment expressed in textual data will provide Cath's Cabs with a greater insight into the nuance of the comments associated with research notes. This functionality will support further analysis into the correlation between a comment and a researcher's notes. For example, a comment that has a positive sentiment may be linked to a user gaining valuable information from such note and could contribute to a ranking system in terms of usefulness of research notes. Such a feature could greatly innovate Cath's Cabs's software. 
 
-`## DIA TEAM MEMBER NOTES (DELETE THIS CELL ON CHECKING POINTS BELOW):`
+Sentiment Analysis is an area of NLP which aims to automatically identify and extract opinions within a given text by gauging the attitude, sentiment, evaluation and emotion of a speaker/writer based on the computational treatment of the text.
 
-`### Text changes required if using different dataset to Amazon's Fine Food Reviews:`
+## Sentiment Analysis
 
-- `Change title of notebook`
-- `Change dataset text in "1. Introduction"`
-- `Change dataset text in "2. Data"`
-
-***
-
-# Sentiment Detection within Comments
-
-## 1. Introduction
-
-The purpose of this notebook is to demonstrate *Sentiment Analysis*, a *Natural Language Processing (NLP)* technique. This procedure aims to detect sentiment within text.
-
-A subsample of the *Amazon* fine food reviews [dataset](https://www.kaggle.com/snap/amazon-fine-food-reviews) has been used in this notebook.
-
-### 1.1 Import Libraries
-
-The cell immediately below houses the import statements for this script. Please run the cell and continue to scroll to the next cell where the tutorial will continue.
-
-# Data Analysis
-import pandas as pd
-
-# Sentiment Analysis
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-
-## 2. Data
-
-The cell below shows the top 10 records of the fine foods review dataset which is being used in this demonstration. In this case we are only interested in the 'Text' column.
+For the purposes of the concept work herein, we use an *Amazon* fine food reviews dataset.
 
 # Step 1: Read in data and print
 df = pd.read_csv('fine-food-reviews-ee.csv')
@@ -43,11 +19,8 @@ df = df[:10]
 review_list = df['Text'].tolist()
 # print(review_list)
 
-## 3. Sentiment Analysis
 
-In the following cell, we apply `VADER`, a sentiment analysis tool, to the top 10 reviews in the example dataset.
-
-Once `VADER` is installed, we call the `SentimentIntensityAnalyzer` object. We will use the `polarity_scores()` method to obtain the polarity indices for a given review.
+The demonstration reports the results of VADER and the Tone Analyzer classifications for the five example comments. Both VADER and IBM's Tone Analyzer produce a score which correlates to the associated sentiment/emotion. As mentioned above, VADER's score is based off of three different thresholds in relation to the compound score whereas the Tone Analyzer is on a scale of zero to one. A score of 0.75 or higher means it's likely that the emotional indicators are spot-on.
 
 # Step 1: Initialise 'SentimentIntensityAnalyzer' object
 analyser = SentimentIntensityAnalyzer()
@@ -73,3 +46,5 @@ def sentiment_analyzer_scores(review_comments):
             print("------------------------------------------------------------------------------------------------")
 
 sentiment_scores = sentiment_analyzer_scores(review_list)
+
+The given examples clearly express sentiments and emotions. It is important to note that if a comment were to express two sentiments, for example, "I found these notes really helpful, but they could have included a little more information" then more sophisticated techniques may be required such as IBM's Tone Analyzer. Overall, the results from VADER and the Tone Analyzer are in line with our pragmatic competence as human readers which allows us to interpret that these are intuitive results.
