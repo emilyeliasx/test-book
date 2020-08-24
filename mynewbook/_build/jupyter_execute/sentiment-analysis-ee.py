@@ -8,7 +8,11 @@ Sentiment Analysis is an area of NLP which aims to automatically identify and ex
 
 For the purposes of the concept work herein, we use an *Amazon* fine food reviews dataset.
 
+import pandas as pd 
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
 # Step 1: Read in data and print
+
 df = pd.read_csv('fine-food-reviews-ee.csv')
 display(df.head())
 
@@ -48,3 +52,16 @@ def sentiment_analyzer_scores(review_comments):
 sentiment_scores = sentiment_analyzer_scores(review_list)
 
 The given examples clearly express sentiments and emotions. It is important to note that if a comment were to express two sentiments, for example, "I found these notes really helpful, but they could have included a little more information" then more sophisticated techniques may be required such as IBM's Tone Analyzer. Overall, the results from VADER and the Tone Analyzer are in line with our pragmatic competence as human readers which allows us to interpret that these are intuitive results.
+
+## Interactive Visualisation Example
+
+The visualisation below shows the use of `Plotly`.
+
+import plotly.io as pio
+import plotly.express as px
+import plotly.offline as py
+
+df = px.data.iris()
+fig = px.scatter(df, x="sepal_width", y="sepal_length", color="species", size="sepal_length")
+fig
+
