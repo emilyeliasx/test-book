@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Detecting Emotion within Discussion Comments &#8212; Cath&#39;s Cabs Data Innovation Health Check Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Interactive Visualisation Example" href="interactive-vis-example.html" />
+    <link rel="prev" title="Sentiment Detection within Comments" href="sentiment-analysis-ee.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Cath's Cabs Data Innovation Health Check Report</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="home-page.html">
+   <center>
+    Data Innovation Health Check Report
+   </center>
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="foreword.html">
+   Foreword
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="case-study.html">
+   Detecting Emotion within Discussion Comments
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="sentiment-analysis-ee.html">
+     Sentiment Detection within Comments
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Detecting Emotion within Discussion Comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="interactive-vis-example.html">
+     Interactive Visualisation Example
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/sentiment-analysis-test.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="detecting-emotion-within-discussion-comments">
+<h1>Detecting Emotion within Discussion Comments<a class="headerlink" href="#detecting-emotion-within-discussion-comments" title="Permalink to this headline">¶</a></h1>
+<p>The ability to automatically detect the sentiment expressed in textual data will provide Cath’s Cabs with a greater insight into the nuance of the comments associated with research notes. This functionality will support further analysis into the correlation between a comment and a researcher’s notes. For example, a comment that has a positive sentiment may be linked to a user gaining valuable information from such note and could contribute to a ranking system in terms of usefulness of research notes. Such a feature could greatly innovate Cath’s Cabs’s software.</p>
+<p>Sentiment Analysis is an area of NLP which aims to automatically identify and extract opinions within a given text by gauging the attitude, sentiment, evaluation and emotion of a speaker/writer based on the computational treatment of the text.</p>
+<p>The demonstration reports the results of VADER and the Tone Analyzer classifications for the five example comments. Both VADER and IBM’s Tone Analyzer produce a score which correlates to the associated sentiment/emotion. As mentioned above, VADER’s score is based off of three different thresholds in relation to the compound score whereas the Tone Analyzer is on a scale of zero to one. A score of 0.75 or higher means it’s likely that the emotional indicators are spot-on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="c1"># Data Analysis</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Sentiment Analysis</span>
+<span class="kn">from</span> <span class="nn">vaderSentiment.vaderSentiment</span> <span class="k">import</span> <span class="n">SentimentIntensityAnalyzer</span>
+
+<span class="c1"># Step 1: Read in data and print</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;fine-food-reviews-ee.csv&#39;</span><span class="p">)</span>
+<span class="c1"># display(df.head())</span>
+
+<span class="c1"># Step 2: Retrieve the top 10 reviews for demonstration purposes</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="c1"># Step 3: Convert &#39;Text&#39; column to list</span>
+<span class="n">review_list</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="c1"># print(review_list)</span>
+
+<span class="c1"># Step 1: Initialise &#39;SentimentIntensityAnalyzer&#39; object</span>
+<span class="n">analyser</span> <span class="o">=</span> <span class="n">SentimentIntensityAnalyzer</span><span class="p">()</span>
+
+<span class="c1"># Step 2: Classify reviews by sentiment on *compound score*</span>
+<span class="k">def</span> <span class="nf">sentiment_analyzer_scores</span><span class="p">(</span><span class="n">review_comments</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">review_comments</span><span class="p">:</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">analyser</span><span class="o">.</span><span class="n">polarity_scores</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">score</span><span class="p">[</span><span class="s1">&#39;compound&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.05</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compound Score: &quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Overall Sentiment: Positive&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">score</span><span class="p">[</span><span class="s1">&#39;compound&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="o">-</span> <span class="mf">0.05</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compound Score: &quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Overall Sentiment: Negative&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compound Score: &quot;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Overall Sentiment: Neutral&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------------------------------------------------------------------------&quot;</span><span class="p">)</span>
+
+<span class="n">sentiment_scores</span> <span class="o">=</span> <span class="n">sentiment_analyzer_scores</span><span class="p">(</span><span class="n">review_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>I have bought several of the Vitality canned dog food products and have found them all to be of good quality. The product looks more like a stew than a processed meat and it smells better. My Labrador is finicky and she appreciates this product better than  most. 
+
+Compound Score:  {&#39;neg&#39;: 0.0, &#39;neu&#39;: 0.695, &#39;pos&#39;: 0.305, &#39;compound&#39;: 0.9441}
+Overall Sentiment: Positive 
+
+------------------------------------------------------------------------------------------------
+Product arrived labeled as Jumbo Salted Peanuts...the peanuts were actually small sized unsalted. Not sure if this was an error or if the vendor intended to represent the product as &quot;Jumbo&quot;. 
+
+Compound Score:  {&#39;neg&#39;: 0.138, &#39;neu&#39;: 0.862, &#39;pos&#39;: 0.0, &#39;compound&#39;: -0.5664}
+Overall Sentiment: Negative 
+
+------------------------------------------------------------------------------------------------
+This is a confection that has been around a few centuries.  It is a light, pillowy citrus gelatin with nuts - in this case Filberts. And it is cut into tiny squares and then liberally coated with powdered sugar.  And it is a tiny mouthful of heaven.  Not too chewy, and very flavorful.  I highly recommend this yummy treat.  If you are familiar with the story of C.S. Lewis&#39; &quot;The Lion, The Witch, and The Wardrobe&quot; - this is the treat that seduces Edmund into selling out his Brother and Sisters to the Witch. 
+
+Compound Score:  {&#39;neg&#39;: 0.091, &#39;neu&#39;: 0.754, &#39;pos&#39;: 0.155, &#39;compound&#39;: 0.8265}
+Overall Sentiment: Positive 
+
+------------------------------------------------------------------------------------------------
+If you are looking for the secret ingredient in Robitussin I believe I have found it.  I got this in addition to the Root Beer Extract I ordered (which was good) and made some cherry soda.  The flavor is very medicinal. 
+
+Compound Score:  {&#39;neg&#39;: 0.0, &#39;neu&#39;: 1.0, &#39;pos&#39;: 0.0, &#39;compound&#39;: 0.0}
+Overall Sentiment: Neutral 
+
+------------------------------------------------------------------------------------------------
+Great taffy at a great price.  There was a wide assortment of yummy taffy.  Delivery was very quick.  If your a taffy lover, this is a deal. 
+
+Compound Score:  {&#39;neg&#39;: 0.0, &#39;neu&#39;: 0.552, &#39;pos&#39;: 0.448, &#39;compound&#39;: 0.9468}
+Overall Sentiment: Positive 
+
+------------------------------------------------------------------------------------------------
+I got a wild hair for taffy and ordered this five pound bag. The taffy was all very enjoyable with many flavors: watermelon, root beer, melon, peppermint, grape, etc. My only complaint is there was a bit too much red/black licorice-flavored pieces (just not my particular favorites). Between me, my kids, and my husband, this lasted only two weeks! I would recommend this brand of taffy -- it was a delightful treat. 
+
+Compound Score:  {&#39;neg&#39;: 0.029, &#39;neu&#39;: 0.809, &#39;pos&#39;: 0.163, &#39;compound&#39;: 0.883}
+Overall Sentiment: Positive 
+
+------------------------------------------------------------------------------------------------
+This saltwater taffy had great flavors and was very soft and chewy.  Each candy was individually wrapped well.  None of the candies were stuck together, which did happen in the expensive version, Fralinger&#39;s.  Would highly recommend this candy!  I served it at a beach-themed party and everyone loved it! 
+
+Compound Score:  {&#39;neg&#39;: 0.034, &#39;neu&#39;: 0.693, &#39;pos&#39;: 0.273, &#39;compound&#39;: 0.9346}
+Overall Sentiment: Positive 
+
+------------------------------------------------------------------------------------------------
+This taffy is so good.  It is very soft and chewy.  The flavors are amazing.  I would definitely recommend you buying it.  Very satisfying!! 
+
+Compound Score:  {&#39;neg&#39;: 0.0, &#39;neu&#39;: 0.52, &#39;pos&#39;: 0.48, &#39;compound&#39;: 0.9487}
+Overall Sentiment: Positive 
+
+------------------------------------------------------------------------------------------------
+Right now I&#39;m mostly just sprouting this so my cats can eat the grass. They love it. I rotate it around with Wheatgrass and Rye too 
+
+Compound Score:  {&#39;neg&#39;: 0.0, &#39;neu&#39;: 0.851, &#39;pos&#39;: 0.149, &#39;compound&#39;: 0.6369}
+Overall Sentiment: Positive 
+
+------------------------------------------------------------------------------------------------
+This is a very healthy dog food. Good for their digestion. Also good for small puppies. My dog eats her required amount at every feeding. 
+
+Compound Score:  {&#39;neg&#39;: 0.0, &#39;neu&#39;: 0.705, &#39;pos&#39;: 0.295, &#39;compound&#39;: 0.8313}
+Overall Sentiment: Positive 
+
+------------------------------------------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both the first and fourth comment have been classified as negative whereas the Tone Analyzer classified these two comments as frustrated and sad. Comments three and five have been classified as positive by VADER and IBM’s tool has given a classification of satisfied and excited respectively. The second comment has been shown to be neutral. The benefit of IBM’s Tone Analyzer is that of classifying through emotion rather than basic sentiment and in this case the second comment has been classified as both polite and sympathetic. As shown, the Tone Analyzer can classify more than one emotion to comments whereas VADER is limited to one of the three sentiments, i.e. positive, negative, neutral.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "0b63ad30-d810-40e6-b290-b7d7908286d1"
+        },
+        kernelOptions: {
+            kernelName: "0b63ad30-d810-40e6-b290-b7d7908286d1",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '0b63ad30-d810-40e6-b290-b7d7908286d1'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="sentiment-analysis-ee.html" title="previous page">Sentiment Detection within Comments</a>
+    <a class='right-next' id="next-link" href="interactive-vis-example.html" title="next page">Interactive Visualisation Example</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The DIA<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
