@@ -1,0 +1,8 @@
+# Book settings
+title: Cath's Cabs Data Innovation Health Check Report
+author: The DIA
+logo: logo.jpg
+
+latex:
+  latex_documents:
+    targetname: book.tex

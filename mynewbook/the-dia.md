@@ -1,0 +1,5 @@
+## Who We Are 
+
+The Data Innovation Accelerator (DIA) at Cardiff University addresses the opportunity for greater economic exploitation of data-driven simulation and analysis in businesses in Wales by building data science awareness, capacity and skills within Small and Medium Enterprises (SMEs). We exist to support companies and to evidence the power of their data. 
+
+The DIA fills a gap in the current ‘data science ecosystem’ in Wales. Schemes exist to support undergraduate qualifications (e.g. National Software Academy) and postgraduate study (e.g. Cardiff University’s forthcoming Data Science Academy). Schemes also exist for large companies to ‘buy-in’ academic expertise (e.g. Knowledge Transfer Partnerships or secondments). However, no provision has existed to build data science awareness, capacity and skills within SMEs in Wales. 
