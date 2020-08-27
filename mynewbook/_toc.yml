@@ -6,3 +6,9 @@
     - file: sentiment-analysis-ee
     - file: interactive-vis-example
 
+- file: other-apps
+  sections:
+    - file: assoc-rule-mining-ee
+
+- file: ipywidgets-examples
+

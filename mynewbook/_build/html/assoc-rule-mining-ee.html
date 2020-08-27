@@ -1,0 +1,772 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Association Rule Mining &#8212; Cath&#39;s Cabs Data Innovation Health Check Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/mystnb.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ipywidgets" href="ipywidgets-examples.html" />
+    <link rel="prev" title="Product Correlation using Association Rule Mining" href="other-apps.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Cath's Cabs Data Innovation Health Check Report</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="home-page.html">
+   <center>
+    Data Innovation Health Check Report
+   </center>
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="foreword.html">
+   Foreword
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="case-study.html">
+   Detecting Emotion within Discussion Comments
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="other-apps.html">
+   Product Correlation using Association Rule Mining
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Association Rule Mining
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ipywidgets-examples.html">
+   ipywidgets
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/assoc-rule-mining-ee.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   1. Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-libraries">
+     1.1 Import Libraries
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-exploration">
+   2. Data Exploration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   3. Association Rule Mining
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1">
+     3.1 Example 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2">
+     3.2 Example 2
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <hr class="docutils" />
+<p><code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">DIA</span> <span class="pre">TEAM</span> <span class="pre">MEMBER</span> <span class="pre">NOTES</span> <span class="pre">(DELETE</span> <span class="pre">THIS</span> <span class="pre">CELL</span> <span class="pre">ON</span> <span class="pre">CHECKING</span> <span class="pre">POINTS</span> <span class="pre">BELOW):</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">###</span> <span class="pre">Text</span> <span class="pre">changes</span> <span class="pre">required</span> <span class="pre">if</span> <span class="pre">using</span> <span class="pre">different</span> <span class="pre">dataset</span> <span class="pre">to</span> <span class="pre">Online</span> <span class="pre">Retail:</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Change</span> <span class="pre">dataset</span> <span class="pre">text</span> <span class="pre">in</span> <span class="pre">&quot;1.</span> <span class="pre">Introduction&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Change</span> <span class="pre">text</span> <span class="pre">in</span> <span class="pre">&quot;2.</span> <span class="pre">Data</span> <span class="pre">Exploration&quot;</span></code></p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="association-rule-mining">
+<h1>Association Rule Mining<a class="headerlink" href="#association-rule-mining" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of this notebook is to demonstrate association rule mining, a <em>Natural Language Processing (NLP)</em> technique. This procedure aims to observe frequently occurring patterns, correlations or associations within large datasets.</p>
+<p>An example transnational <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Online+Retail">dataset</a> which contains all 541,909 transactions occurring between 01/12/2010 and 09/12/2011 for a UK-based and registered non-store online retail has been used in this notebook.</p>
+<div class="section" id="import-libraries">
+<h3>1.1 Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h3>
+<p>The cell immediately below houses the import statements for this script. Please run the cell and continue to scroll to the next cell where the tutorial will continue.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data Analysis</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+
+<span class="c1"># Association Rule Mining</span>
+<span class="kn">from</span> <span class="nn">mlxtend.frequent_patterns</span> <span class="k">import</span> <span class="n">apriori</span> 
+<span class="kn">from</span> <span class="nn">mlxtend.frequent_patterns</span> <span class="k">import</span> <span class="n">association_rules</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-exploration">
+<h2>2. Data Exploration<a class="headerlink" href="#data-exploration" title="Permalink to this headline">¶</a></h2>
+<p>The cell below explores the sample dataset being used in this demonstration including the pre-processing of the text and one-hot encoding. Each row corresponds to one item ordered with a corresponding InvoiceNo and CustomerID.</p>
+<p>Some pre-processing has to be done:</p>
+<ul class="simple">
+<li><p>remove spaces in ‘Description’ column</p></li>
+<li><p>drop rows that don’t have InvoiceNo</p></li>
+</ul>
+<p>One-hot encoding refers to splitting the ‘Description’ column, which contains categorical data, to many columns depending on the number of categories present in that column. Each column contains a “0” or “1” corresponding to which column it has been placed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Read in Excel file</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;online-retail-ee.xlsx&#39;</span><span class="p">)</span>
+
+<span class="c1"># Step 2: Display first 5 records of dataset</span>
+<span class="c1"># display(df.head())</span>
+
+<span class="c1"># Step 3: Pre-processing of data</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;InvoiceNo&#39;</span><span class="p">],</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;InvoiceNo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;InvoiceNo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Display first 5 records of pre-processed dataset</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Step 5: One-hot encoding function</span>
+<span class="k">def</span> <span class="nf">encode_units</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>InvoiceNo</th>
+      <th>StockCode</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>InvoiceDate</th>
+      <th>UnitPrice</th>
+      <th>CustomerID</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>536365</td>
+      <td>85123A</td>
+      <td>WHITE HANGING HEART T-LIGHT HOLDER</td>
+      <td>6</td>
+      <td>2010-12-01 08:26:00</td>
+      <td>2.55</td>
+      <td>17850.0</td>
+      <td>United Kingdom</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>536365</td>
+      <td>71053</td>
+      <td>WHITE METAL LANTERN</td>
+      <td>6</td>
+      <td>2010-12-01 08:26:00</td>
+      <td>3.39</td>
+      <td>17850.0</td>
+      <td>United Kingdom</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>536365</td>
+      <td>84406B</td>
+      <td>CREAM CUPID HEARTS COAT HANGER</td>
+      <td>8</td>
+      <td>2010-12-01 08:26:00</td>
+      <td>2.75</td>
+      <td>17850.0</td>
+      <td>United Kingdom</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>536365</td>
+      <td>84029G</td>
+      <td>KNITTED UNION FLAG HOT WATER BOTTLE</td>
+      <td>6</td>
+      <td>2010-12-01 08:26:00</td>
+      <td>3.39</td>
+      <td>17850.0</td>
+      <td>United Kingdom</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>536365</td>
+      <td>84029E</td>
+      <td>RED WOOLLY HOTTIE WHITE HEART.</td>
+      <td>6</td>
+      <td>2010-12-01 08:26:00</td>
+      <td>3.39</td>
+      <td>17850.0</td>
+      <td>United Kingdom</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>3. Association Rule Mining<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>To conduct association rule mining, the <em>Apriori</em> algorithm is used. There are three main components that comprise the algorithm:</p>
+<ul class="simple">
+<li><p><em>Support</em>: how frequently a product appears in the dataset</p></li>
+<li><p><em>Confidence</em>: the likelihood that a purchasing order contains product X and product Y together. If the confidence value is 1, then the algorithm detected that both products are purchased together all of the time</p></li>
+<li><p><em>Lift</em>: the increase in the ratio of the purchasing order of product X when product Y is also purchased. If the lift value is less than 1, it entails that the purchasing order is unlikely to contain both items together. The greater the value, the better the combination of the products. For example, a lift value of 5 infers that the likelihood of a client having the suggestion of claiming child benefit and lowering their mortgage payments together is five times more than that of suggesting claiming child benefit alone.</p></li>
+</ul>
+<div class="section" id="example-1">
+<h3>3.1 Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<p>The cell below conducts association rule mining on the example dataset. The association rules displayed are limited to having a support value of at least 7%, life value of at least 6 and a confidence larger than 0.8.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Create basket containing all French orders</span>
+<span class="n">basket</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;France&quot;</span><span class="p">]</span>
+            <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;InvoiceNo&#39;</span><span class="p">,</span> <span class="s1">&#39;Description&#39;</span><span class="p">])[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span>
+            <span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;InvoiceNo&#39;</span><span class="p">))</span>
+
+<span class="c1"># Step 2: One-hot encoding</span>
+<span class="n">basket_sets</span> <span class="o">=</span> <span class="n">basket</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">encode_units</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Generate frequent itemsets with a support of at least 7%</span>
+<span class="n">frequent_itemsets</span> <span class="o">=</span> <span class="n">apriori</span><span class="p">(</span><span class="n">basket_sets</span><span class="p">,</span> <span class="n">min_support</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">use_colnames</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Generate association rules</span>
+<span class="n">rules</span> <span class="o">=</span> <span class="n">association_rules</span><span class="p">(</span><span class="n">frequent_itemsets</span><span class="p">,</span> <span class="n">metric</span> <span class="o">=</span> <span class="s2">&quot;lift&quot;</span><span class="p">,</span> <span class="n">min_threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Display association rules with a lift higher or equal to 6 and a confidence higher than or equal to 0.8</span>
+<span class="n">display</span><span class="p">(</span><span class="n">rules</span><span class="p">[(</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;lift&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;confidence&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.8</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>antecedents</th>
+      <th>consequents</th>
+      <th>antecedent support</th>
+      <th>consequent support</th>
+      <th>support</th>
+      <th>confidence</th>
+      <th>lift</th>
+      <th>leverage</th>
+      <th>conviction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>58</th>
+      <td>(SET/6 RED SPOTTY PAPER PLATES)</td>
+      <td>(SET/6 RED SPOTTY PAPER CUPS)</td>
+      <td>0.108460</td>
+      <td>0.117137</td>
+      <td>0.104121</td>
+      <td>0.960000</td>
+      <td>8.195556</td>
+      <td>0.091417</td>
+      <td>22.071584</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>(SET/6 RED SPOTTY PAPER CUPS)</td>
+      <td>(SET/6 RED SPOTTY PAPER PLATES)</td>
+      <td>0.117137</td>
+      <td>0.108460</td>
+      <td>0.104121</td>
+      <td>0.888889</td>
+      <td>8.195556</td>
+      <td>0.091417</td>
+      <td>8.023861</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>(SET/6 RED SPOTTY PAPER PLATES, POSTAGE)</td>
+      <td>(SET/6 RED SPOTTY PAPER CUPS)</td>
+      <td>0.091106</td>
+      <td>0.117137</td>
+      <td>0.086768</td>
+      <td>0.952381</td>
+      <td>8.130511</td>
+      <td>0.076096</td>
+      <td>18.540130</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>(SET/6 RED SPOTTY PAPER CUPS, POSTAGE)</td>
+      <td>(SET/6 RED SPOTTY PAPER PLATES)</td>
+      <td>0.099783</td>
+      <td>0.108460</td>
+      <td>0.086768</td>
+      <td>0.869565</td>
+      <td>8.017391</td>
+      <td>0.075945</td>
+      <td>6.835141</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>(SET/20 RED RETROSPOT PAPER NAPKINS, SET/6 RED...</td>
+      <td>(SET/6 RED SPOTTY PAPER CUPS)</td>
+      <td>0.086768</td>
+      <td>0.117137</td>
+      <td>0.084599</td>
+      <td>0.975000</td>
+      <td>8.323611</td>
+      <td>0.074435</td>
+      <td>35.314534</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>(SET/20 RED RETROSPOT PAPER NAPKINS, SET/6 RED...</td>
+      <td>(SET/6 RED SPOTTY PAPER PLATES)</td>
+      <td>0.086768</td>
+      <td>0.108460</td>
+      <td>0.084599</td>
+      <td>0.975000</td>
+      <td>8.989500</td>
+      <td>0.075188</td>
+      <td>35.661605</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>(SET/6 RED SPOTTY PAPER PLATES, SET/6 RED SPOT...</td>
+      <td>(SET/20 RED RETROSPOT PAPER NAPKINS)</td>
+      <td>0.104121</td>
+      <td>0.112798</td>
+      <td>0.084599</td>
+      <td>0.812500</td>
+      <td>7.203125</td>
+      <td>0.072854</td>
+      <td>4.731743</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="example-2">
+<h3>3.2 Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<p>The following cell generates association rules for all orders in the UK with a minimum support of 5%, a lift higher than 8 and a confidence value of at least 0.5.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Create basket containing all UK orders</span>
+<span class="n">basket2</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;United Kingdom&quot;</span><span class="p">]</span>
+            <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;InvoiceNo&#39;</span><span class="p">,</span> <span class="s1">&#39;Description&#39;</span><span class="p">])[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span>
+            <span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;InvoiceNo&#39;</span><span class="p">))</span>
+
+<span class="c1"># Step 2: One-hot encoding</span>
+<span class="n">basket_sets2</span> <span class="o">=</span> <span class="n">basket2</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">encode_units</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Generate frequent itemsets with a support of at least 5%</span>
+<span class="n">frequeny_itemsets2</span> <span class="o">=</span> <span class="n">apriori</span><span class="p">(</span><span class="n">basket_sets2</span><span class="p">,</span> <span class="n">min_support</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">use_colnames</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Generate association rules</span>
+<span class="n">rules2</span> <span class="o">=</span> <span class="n">association_rules</span><span class="p">(</span><span class="n">frequeny_itemsets2</span><span class="p">,</span> <span class="n">metric</span> <span class="o">=</span> <span class="s2">&quot;lift&quot;</span><span class="p">,</span> <span class="n">min_threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Display association rules with a lift higher or equal to 8 and a confidence higher than or equal to 0.5</span>
+<span class="n">display</span><span class="p">(</span><span class="n">rules</span><span class="p">[(</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;lift&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s1">&#39;confidence&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>antecedents</th>
+      <th>consequents</th>
+      <th>antecedent support</th>
+      <th>consequent support</th>
+      <th>support</th>
+      <th>confidence</th>
+      <th>lift</th>
+      <th>leverage</th>
+      <th>conviction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>58</th>
+      <td>(SET/6 RED SPOTTY PAPER PLATES)</td>
+      <td>(SET/6 RED SPOTTY PAPER CUPS)</td>
+      <td>0.108460</td>
+      <td>0.117137</td>
+      <td>0.104121</td>
+      <td>0.960000</td>
+      <td>8.195556</td>
+      <td>0.091417</td>
+      <td>22.071584</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>(SET/6 RED SPOTTY PAPER CUPS)</td>
+      <td>(SET/6 RED SPOTTY PAPER PLATES)</td>
+      <td>0.117137</td>
+      <td>0.108460</td>
+      <td>0.104121</td>
+      <td>0.888889</td>
+      <td>8.195556</td>
+      <td>0.091417</td>
+      <td>8.023861</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>(SET/6 RED SPOTTY PAPER PLATES, POSTAGE)</td>
+      <td>(SET/6 RED SPOTTY PAPER CUPS)</td>
+      <td>0.091106</td>
+      <td>0.117137</td>
+      <td>0.086768</td>
+      <td>0.952381</td>
+      <td>8.130511</td>
+      <td>0.076096</td>
+      <td>18.540130</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>(SET/6 RED SPOTTY PAPER CUPS, POSTAGE)</td>
+      <td>(SET/6 RED SPOTTY PAPER PLATES)</td>
+      <td>0.099783</td>
+      <td>0.108460</td>
+      <td>0.086768</td>
+      <td>0.869565</td>
+      <td>8.017391</td>
+      <td>0.075945</td>
+      <td>6.835141</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>(SET/6 RED SPOTTY PAPER PLATES)</td>
+      <td>(SET/6 RED SPOTTY PAPER CUPS, POSTAGE)</td>
+      <td>0.108460</td>
+      <td>0.099783</td>
+      <td>0.086768</td>
+      <td>0.800000</td>
+      <td>8.017391</td>
+      <td>0.075945</td>
+      <td>4.501085</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>(SET/6 RED SPOTTY PAPER CUPS)</td>
+      <td>(SET/6 RED SPOTTY PAPER PLATES, POSTAGE)</td>
+      <td>0.117137</td>
+      <td>0.091106</td>
+      <td>0.086768</td>
+      <td>0.740741</td>
+      <td>8.130511</td>
+      <td>0.076096</td>
+      <td>3.505733</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>(SET/20 RED RETROSPOT PAPER NAPKINS, SET/6 RED...</td>
+      <td>(SET/6 RED SPOTTY PAPER CUPS)</td>
+      <td>0.086768</td>
+      <td>0.117137</td>
+      <td>0.084599</td>
+      <td>0.975000</td>
+      <td>8.323611</td>
+      <td>0.074435</td>
+      <td>35.314534</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>(SET/20 RED RETROSPOT PAPER NAPKINS, SET/6 RED...</td>
+      <td>(SET/6 RED SPOTTY PAPER PLATES)</td>
+      <td>0.086768</td>
+      <td>0.108460</td>
+      <td>0.084599</td>
+      <td>0.975000</td>
+      <td>8.989500</td>
+      <td>0.075188</td>
+      <td>35.661605</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>(SET/6 RED SPOTTY PAPER PLATES)</td>
+      <td>(SET/20 RED RETROSPOT PAPER NAPKINS, SET/6 RED...</td>
+      <td>0.108460</td>
+      <td>0.086768</td>
+      <td>0.084599</td>
+      <td>0.780000</td>
+      <td>8.989500</td>
+      <td>0.075188</td>
+      <td>4.151055</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>(SET/6 RED SPOTTY PAPER CUPS)</td>
+      <td>(SET/20 RED RETROSPOT PAPER NAPKINS, SET/6 RED...</td>
+      <td>0.117137</td>
+      <td>0.086768</td>
+      <td>0.084599</td>
+      <td>0.722222</td>
+      <td>8.323611</td>
+      <td>0.074435</td>
+      <td>3.287636</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "0b63ad30-d810-40e6-b290-b7d7908286d1"
+        },
+        kernelOptions: {
+            kernelName: "0b63ad30-d810-40e6-b290-b7d7908286d1",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = '0b63ad30-d810-40e6-b290-b7d7908286d1'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="other-apps.html" title="previous page">Product Correlation using Association Rule Mining</a>
+    <a class='right-next' id="next-link" href="ipywidgets-examples.html" title="next page">ipywidgets</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The DIA<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
